@@ -61,27 +61,27 @@ namespace DeteccionObjetos
                     {
                         bool[,] subSeccion = new bool[(w / st), (h / st)];
                         int positivos = 0;
-                        foreach (DataRow color in objetosDataSet1.color.Rows)
-                        {
-                            if (obj[0].ToString() == color[4].ToString())
-                            {
-                                for (int k = (i * (w / st)); k < (i * (w / st)) + (w / st) - 10; k++)
-                                {
-                                    for (int l = (j * (h / st)); l < (j * (h / st)) + (h / st) - 10; l++)
-                                    {
-                                        int cRto = 0, cGto = 0, cBto = 0;
-                                        for (int m = k; m < k + 10; m++)
-                                        {
-                                            for (int n = l; n < l + 10; n++)
-                                            {
-                                                c = bmpInicial.GetPixel(k, l);
-                                                cRto = c.R + cRto; cGto = c.G + cGto; cBto = c.B + cBto;
-                                            }
-                                        }
-                                        cRto = cRto / 100;
-                                        cGto = cGto / 100;
-                                        cBto = cBto / 100;
 
+                        for (int k = (i * (w / st)); k < (i * (w / st)) + (w / st) - 10; k++)
+                        {
+                            for (int l = (j * (h / st)); l < (j * (h / st)) + (h / st) - 10; l++)
+                            {
+                                int cRto = 0, cGto = 0, cBto = 0;
+                                for (int m = k; m < k + 10; m++)
+                                {
+                                    for (int n = l; n < l + 10; n++)
+                                    {
+                                        c = bmpInicial.GetPixel(k, l);
+                                        cRto = c.R + cRto; cGto = c.G + cGto; cBto = c.B + cBto;
+                                    }
+                                }
+                                cRto = cRto / 100;
+                                cGto = cGto / 100;
+                                cBto = cBto / 100;
+                                foreach (DataRow color in objetosDataSet1.color.Rows)
+                                {
+                                    if (obj[0].ToString() == color[4].ToString())
+                                    {
                                         int cR = int.Parse(color[1].ToString());
                                         int cG = int.Parse(color[2].ToString());
                                         int cB = int.Parse(color[3].ToString());
@@ -109,26 +109,26 @@ namespace DeteccionObjetos
                             }
                         }
                         float porcetaje = ((float)positivos / (float)((w / st) * (h / st))) * 100;
-                        if (porcetaje > 40.00)
+                        if (porcetaje > 50.00)
                         {
                             seccion[i, j] = 1;
                         }
                     }
                 }
                 //MessageBox.Show(obj[1]+"");
-                List<int[]> cuadrados=new List<int[]>();
-                for (int i = 1; i < st-1; i++)
+                List<int[]> cuadrados = new List<int[]>();
+                for (int i = 1; i < st - 1; i++)
                 {
-                    for (int j = 1; j < st-1; j++)
+                    for (int j = 1; j < st - 1; j++)
                     {
-                        if (seccion[i,j]==1)
+                        if (seccion[i, j] == 1)
                         {
                             int x = i, y = j;
                             int[] aux = new int[4] { i, j, 1, 1 };
-                            while (x!=st)
+                            while (x != st)
                             {
                                 seccion[x, y] = 2;
-                                if (seccion[x, y + 1]==1)
+                                if (seccion[x, y + 1] == 1)
                                 {
                                     aux[3]++;
                                     seccion[x, y + 1] = 2;
@@ -139,11 +139,11 @@ namespace DeteccionObjetos
                                     aux[3]++;
                                     seccion[x, y - 1] = 2;
                                 }
-                                if ((x+1)==st)
+                                if ((x + 1) == st)
                                 {
                                     break;
                                 }
-                                if (seccion[x+1,y] == 1)
+                                if (seccion[x + 1, y] == 1)
                                 {
                                     aux[2]++;
                                     x++;
@@ -160,7 +160,7 @@ namespace DeteccionObjetos
                 Pen lp1 = new Pen(Color.Red, 3);
                 Pen lp2 = new Pen(Color.Red);
                 Brush br = Brushes.Red;
-                if (obj[0].ToString() == "3" )
+                if (obj[0].ToString() == "3")
                 {
                     lp1 = new Pen(Color.Green, 3);
                     lp2 = new Pen(Color.Green);
@@ -176,7 +176,7 @@ namespace DeteccionObjetos
                 {
                     using (Graphics g = Graphics.FromImage(bmpFinal))
                     {
-                        g.DrawRectangle(lp1, new Rectangle(cuad[0] * (w / st), cuad[1] * (h / st), cuad[2]*(w / st), cuad[3] *( h / st)));
+                        g.DrawRectangle(lp1, new Rectangle(cuad[0] * (w / st), cuad[1] * (h / st), cuad[2] * (w / st), cuad[3] * (h / st)));
                         Size sizeOfText = TextRenderer.MeasureText(obj[1].ToString(), new Font("Arial", 8, FontStyle.Bold));
                         Rectangle rect = new Rectangle(cuad[0] * (w / st), cuad[1] * (h / st), sizeOfText.Width, sizeOfText.Height);
                         g.DrawRectangle(lp2, rect);
