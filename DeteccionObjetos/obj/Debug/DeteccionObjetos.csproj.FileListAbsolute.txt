@@ -1,0 +1,11 @@
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\bin\Debug\objetos.accdb
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\bin\Debug\DeteccionObjetos.exe.config
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\bin\Debug\DeteccionObjetos.exe
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\bin\Debug\DeteccionObjetos.pdb
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.csprojAssemblyReference.cache
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.Form1.resources
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.Properties.Resources.resources
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.csproj.GenerateResource.cache
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.csproj.CoreCompileInputs.cache
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.exe
+C:\Users\CEMGAR\source\repos\DeteccionObjetos\DeteccionObjetos\obj\Debug\DeteccionObjetos.pdb
